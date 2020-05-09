@@ -2,8 +2,6 @@ ActiveAdmin.register User do
   index do
     column :email
     column :name
-    column :phone
-    column :user_type
     column :avatar
     actions
   end
@@ -13,16 +11,12 @@ ActiveAdmin.register User do
   filter :country
 
   form title: 'User Edit' do |f|
-    inputs 'Contact Information' do
+    inputs 'Profile' do
       input :email
       input :name
-      input :phone
-      input :whatsapp
+      input :bio
     end
     inputs 'Address' do
-      input :address
-      input :address2
-      input :address3
       input :city
       input :province
       input :country
@@ -41,6 +35,25 @@ ActiveAdmin.register User do
     actions
   end
 
+    show do
+    attributes_table do
+      row :name
+      row :email
+      row :bio
+      row :city
+      row :province
+      row :country
+      row :avatar do |user|
+        if user.avatar.attached?
+          image_tag user.avatar, :style => "width: 20%;"
+        else
+          "No Photo"
+        end
+      end
+    end
+    active_admin_comments
+  end
+
   controller do
     def update_resource object, attributes
       attributes.each do |attr|
@@ -55,6 +68,6 @@ ActiveAdmin.register User do
   end
 
   permit_params do
-    permitted = [:email, :name, :phone, :whatsapp, :address, :address2, :address3, :city, :province, :postal_code, :country, :user_type, :password, :password_confirmation, :avatar]
+    permitted = [:email, :name, :bio, :city, :province, :postal_code, :country, :password, :password_confirmation, :avatar]
   end
 end

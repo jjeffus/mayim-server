@@ -23,6 +23,7 @@ gem 'country_select', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cancancan'
 gem 'draper'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
