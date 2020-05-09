@@ -13,6 +13,10 @@ Rails.application.routes.draw do
                registrations: 'registrations'
              }
 
+  resources :conversations, only: [:index, :create]
+  resources :messages, only: [:create]
+
+  mount ActionCable.server => '/cable'
   get 'home', to: 'pages#home'
   root 'pages#home'
 end
