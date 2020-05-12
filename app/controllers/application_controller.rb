@@ -20,4 +20,14 @@ class ApplicationController < ActionController::Base
       ]
     }, status: :bad_request
   end
+
+  def sign_in(*args)
+    super(*args)
+    current_user.update_attribute('online', true)
+  end
+
+  def sign_out(*args)
+    super(*args)
+    current_user.update_attribute('online', false)
+  end
 end

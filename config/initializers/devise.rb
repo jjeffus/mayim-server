@@ -309,4 +309,12 @@ Devise.setup do |config|
     ]
     jwt.expiration_time = 1.day.to_i
   end
+
+  #Warden::Manager.after_authentication do |user,auth,opts|
+  #  user.update_attribute(:online, true)
+  #end
+
+  #Warden::Manager.before_logout do |user,auth,opts|
+  #  user.update_attribute(:online, false)
+  #end
 end

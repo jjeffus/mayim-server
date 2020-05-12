@@ -3,6 +3,7 @@ ActiveAdmin.register User do
     column :email
     column :name
     column :avatar
+    column :online
     actions
   end
 
@@ -31,12 +32,16 @@ ActiveAdmin.register User do
     inputs "User Avatar" do
       input :avatar, as: :file
     end
+    inputs "Online" do
+      input :online
+    end
     para "Press cancel to return to the user list without saving."
     actions
   end
 
     show do
     attributes_table do
+      row :online
       row :name
       row :email
       row :bio
@@ -68,6 +73,6 @@ ActiveAdmin.register User do
   end
 
   permit_params do
-    permitted = [:email, :name, :bio, :city, :province, :postal_code, :country, :password, :password_confirmation, :avatar]
+    permitted = [:email, :name, :bio, :city, :province, :postal_code, :country, :password, :password_confirmation, :avatar, :online]
   end
 end

@@ -1,4 +1,4 @@
-class Api::V1::MessagesController < ApplicationController
+class Api::V1::MessagesController < Api::V1::ApiController
   def create
     message = Message.new(message_params)
     conversation = Conversation.find(message_params[:conversation_id])

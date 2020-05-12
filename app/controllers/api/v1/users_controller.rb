@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::ApiController
   before_action :authenticate_user!
   respond_to :json
 
@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
   def index
     logger.info "User: #{current_user}"
     if current_user
+      @users = User.online_users
       json_response(@users)
     else
       error = {'error': "You must be signed in to use this service."}
