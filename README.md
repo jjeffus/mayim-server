@@ -22,12 +22,14 @@ This is the codebase for the server, you can find the Flutter client
 # FEATURES
 
 1. Rails 6
-2. [devise-jwt](https://github.com/waiting-for-dev/devise-jwt "Devise with JSON Web Tokens")
-3. Active Storage
-4. Action Cable
-5. Active Admin
-6. (optional) Heroku Deployment
+2. [Active Admin](https://activeadmin.info/)
+3. [Active
+   Storage](https://edgeguides.rubyonrails.org/active_storage_overview.html)
+4. [Action
+   Cable](https://guides.rubyonrails.org/action_cable_overview.html)
+5. [devise-jwt](https://github.com/waiting-for-dev/devise-jwt "Devise with JSON Web Tokens")
+6. [Dokku](https://upcloud.com/community/tutorials/get-started-dokku-debian/) or [Heroku](heroku.com/) Deployment
 
 # COPYRIGHT
 
-&copy; 2020 Janet Braswell-Jeffus and Andrew Carroll
+&copy; 2020 Janet Braswell-Jeffus
