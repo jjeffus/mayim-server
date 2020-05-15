@@ -16,7 +16,7 @@ little mitzvah and help contribute!
 
 # GUIDE
 
-Follow the [guide](https://github.com/jjeffus/mayim-app/blob/master/GUIDE.md) to get
+Follow the [guide](https://github.com/jjeffus/mayim-server/blob/master/GUIDE.md) to get
 this repo setup and online to get your APP_SERVER variable.
 
 # SERVER
