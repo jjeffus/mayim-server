@@ -24,12 +24,17 @@ class ApplicationController < ActionController::Base
   def sign_in(*args)
     super(*args)
     logger.info("sign_in: #{args.join("\t")}")
-    current_user.update_attribute('online', true)
+    if current_user and current_user.is_a? User
+      current_user.update_attribute('online', true)
+    end
   end
 
   def sign_out(*args)
     logger.info("sign_out: #{args.join("\t")}")
-    current_user.update_attribute('online', false)
+    if current_user and current_user.is_a? User
+      current_user.update_attribute('online', false)
+    end
     super(*args)
   end
+
 end

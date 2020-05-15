@@ -17,8 +17,19 @@ logged in with your account.
 
 If you have a custom domain you wish to you set it like so.
 
-`heroku domains:add www.myapp.com`
+`heroku domains:add myapp.com`
 
+Your APP_SERVER URL will be either "https://myapp.com" (assuming you have
+the SSL package) or the default domain Heroku provides like
+"https://sleepy-goat-28376@.herokuapp.com".
+
+Now you can login to the admin panel here:
+
+https://#{APP_SERVER}/admin/login
+
+Use the credentials in db/seeds.rb for AdminUser and be sure to change
+your password after logging in. Remove the user accounts under
+/admin/users
 
 # COPYRIGHT
 
