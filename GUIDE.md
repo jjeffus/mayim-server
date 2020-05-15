@@ -46,6 +46,15 @@ Backup ./config/master.key somewhere outside your repository.
 
 # AFTER SETUP
 
+First create and AdminUser from the Heroku rails console with:
+
+`heroku run bundle exec rails console`
+
+When the console comes up run the following to create an admin.
+
+`AdminUser.create!(email: "admin@mayimchat.example", password:
+"change_this_password", password_confirmation: "change_this_password"`
+
 Your APP_SERVER URL will be either "https://myapp.com" (or the default
 domain for your provider like Heroku provides).
 "https://sleepy-goat-28376737.herokuapp.com".
@@ -54,14 +63,14 @@ Now you can login to the admin panel here:
 
 #{APP_SERVER}/admin/login
 
-Use the credentials in db/seeds.rb for AdminUser and be sure to change
-your password after logging in here:
-
-#{APP_SERVER}/admin/admin_users/1/edit
-
 Optionally remove or change the user account passwords under
 
 #{APP_SERVER}/admin/users
+
+# CONGRATULATIONS!
+
+Now you're ready to build and rebrand your app with the [app
+guide](https://github.com/jjeffus/mayim-app/blob/master/GUIDE.md).
 
 # COPYRIGHT
 

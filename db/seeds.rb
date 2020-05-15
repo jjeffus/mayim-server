@@ -5,11 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(
-  email: 'admin@mayimchat.example',
-  password: 'password',
-  password_confirmation: 'password'
-)
+if Rails.env.development?
+  AdminUser.create!(
+    email: 'admin2@mayimchat.example',
+    password: 'password',
+    password_confirmation: 'password'
+  )
+end
+
+# We create these in production as well so the user can play with the system. They
+# should be removed from the admin panel.
 user = User.new(
   email: 'janet@mayimchat.example',
   name: 'Janet Weiss',
