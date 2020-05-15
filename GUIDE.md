@@ -9,11 +9,11 @@ commands in the directory. You must first have the
 [Heroku](https://devcenter.heroku.com/articles/heroku-cli) cli setup and
 logged in with your account.
 
-`heroku create`
-`heroku addons:create rediscloud:30`
-`git push heroku master`
-`heroku run bundle exec rake db:migrate`
-`heroku run bundle exec rake db:seed`
+    heroku create
+    heroku addons:create rediscloud:30
+    git push heroku master
+    heroku run bundle exec rake db:migrate
+    heroku run bundle exec rake db:seed
     heroku config:set DEVISE_JWT_SECRET_KEY=`bin/rake secret`
 
 If you have a custom domain you wish to you set it like so.
@@ -38,9 +38,9 @@ Fill in your credentials and save the results.
 
 Now commit the changes and deploy them with.
 
-`git add config/credentials.yml.enc`
-`git commit -m "configuring s3 credentials"`
-`git push heroku master`
+    git add config/credentials.yml.enc
+    git commit -m "configuring s3 credentials"
+    git push heroku master
 
 Backup ./config/master.key somewhere outside your repository.
 
