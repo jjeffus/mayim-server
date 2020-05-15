@@ -14,22 +14,54 @@ logged in with your account.
 `git push heroku master`
 `heroku run bundle exec rake db:migrate`
 `heroku run bundle exec rake db:seed`
+    heroku config:set DEVISE_JWT_SECRET_KEY=`bin/rake secret`
 
 If you have a custom domain you wish to you set it like so.
 
 `heroku domains:add myapp.com`
 
-Your APP_SERVER URL will be either "https://myapp.com" (assuming you have
-the SSL package) or the default domain Heroku provides like
-"https://sleepy-goat-28376@.herokuapp.com".
+# CONFIGURING STORAGE
+
+This app uses [Active
+Stoage](https://edgeguides.rubyonrails.org/active_storage_overview.html) so it is very flexible.
+If you are using Heroku you must set some storage service credentials.
+For Heroku Amazon S3 is recommended. Set credentials by editing
+config/credentials.yml by starting an editor like so.
+
+`EDITOR=vim rails credentials:edit`
+
+Fill in your credentials and save the results.
+
+    aws: # Be sure to remove the comments
+      access_key_id: <123 credentials here>
+      secret_access_key: <345 credentials here>
+
+Now commit the changes and deploy them with.
+
+`git add config/credentials.yml.enc`
+`git commit -m "configuring s3 credentials"`
+`git push heroku master`
+
+Backup ./config/master.key somewhere outside your repository.
+
+# AFTER SETUP
+
+Your APP_SERVER URL will be either "https://myapp.com" (or the default
+domain for your provider like Heroku provides).
+"https://sleepy-goat-28376737.herokuapp.com".
 
 Now you can login to the admin panel here:
 
-https://#{APP_SERVER}/admin/login
+#{APP_SERVER}/admin/login
 
 Use the credentials in db/seeds.rb for AdminUser and be sure to change
-your password after logging in. Remove the user accounts under
-/admin/users
+your password after logging in here:
+
+#{APP_SERVER}/admin/admin_users/1/edit
+
+Optionally remove or change the user account passwords under
+
+#{APP_SERVER}/admin/users
 
 # COPYRIGHT
 
