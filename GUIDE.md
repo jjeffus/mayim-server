@@ -35,6 +35,8 @@ Fill in your credentials and save the results.
     aws: # Be sure to remove the comments
       access_key_id: <123 credentials here>
       secret_access_key: <345 credentials here>
+      bucket: <S3 bucket nsme>
+      region: <s3 region>
 
 Now commit the changes and deploy them with.
 
