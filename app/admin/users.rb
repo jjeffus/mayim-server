@@ -50,7 +50,7 @@ ActiveAdmin.register User do
       row :country
       row :avatar do |user|
         if user.avatar.attached?
-          image_tag user.avatar, :style => "width: 20%;"
+          image_tag rails_blob_path(user.avatar, only_path: true), :style => "width: 20%;"
         else
           "No Photo"
         end
