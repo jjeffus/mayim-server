@@ -42,6 +42,7 @@ Now commit the changes and deploy them with.
 
     git add config/credentials.yml.enc
     git commit -m "configuring s3 credentials"
+    heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
     git push heroku master
 
 Backup ./config/master.key somewhere outside your repository.
