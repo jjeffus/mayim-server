@@ -1,7 +1,9 @@
 class Api::V1::MessagesController < Api::V1::ApiController
+  skip_before_action :verify_authenticity_token
+
   def create
-    message = Message.new(message_params)
-    conversation = Conversation.find(message_params[:conversation_id])
+    conversation = Conversation.find_or_create_by_message(current_user, message_params)
+    message = conversation.add_message(current_user, message_params)
     if message.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         MessageSerializer.new(message)
@@ -14,6 +16,6 @@ class Api::V1::MessagesController < Api::V1::ApiController
   private
 
   def message_params
-    params.require(:message).permit(:text, :conversation_id)
+    params.require(:message).permit(:text, :conversation, :receiver_id)
   end
 end

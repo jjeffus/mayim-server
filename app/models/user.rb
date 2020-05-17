@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
   has_one_attached :avatar
+  has_many :messages
 
   def self.online_users
     with_attached_avatar.where(:online => true)
