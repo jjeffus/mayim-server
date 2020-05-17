@@ -74,8 +74,8 @@ user = User.new(
   password_confirmation: 'password'
 )
 user.avatar.attach(
-  io: File.open(Rails.root.join("graphics/people/Richard_O'Brien_cropped.jpg")),
-  filename: 'riff_raff.jpg',
+  io: File.open(Rails.root.join("graphics/people/Patricia_Quinn_May_2015.jpg")),
+  filename: 'magenta.jpg',
   content_type: 'image/jpeg'
 )
 user.save!
