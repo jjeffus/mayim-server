@@ -1,0 +1,14 @@
+// https://github.com/adriancast/Bulma-login-template
+.columns.is-vcentered
+  .login.column.is-4
+    section.section
+      .has-text-centered
+        = image_tag('mayim_logo.png', :class => 'login-logo')
+
+      = react_component("Auth")
+
+      .has-text-centered
+        | Get the code and help contribute
+        = link_to " here.", "https://github.com/jjeffus/mayim-server/"
+
+  #particles-js.interactive-bg.column.is-8

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   mount ActionCable.server, at: '/cable'
-  get 'home', to: 'pages#home'
-  root 'pages#home'
+  get 'signin', to: 'pages#signin'
+  get 'register', to: 'pages#register'
+  root 'pages#signin'
 end

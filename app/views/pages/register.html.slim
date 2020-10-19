@@ -1,0 +1,28 @@
+.columns.is-vcentered
+  .login.column.is-4
+    section.section
+      .has-text-centered
+        = image_tag('mayim_logo.png', :class => 'login-logo')
+      .field
+        label.label Username
+        .control.has-icons-right
+          input.input type="text" /
+          span.icon.is-small.is-right
+            i.fa.fa-user
+      .field
+        label.label Email
+        .control.has-icons-right
+          input.input type="text" /
+          span.icon.is-small.is-right
+            i.fa.fa-envelope
+      .field
+        label.label Password
+        .control.has-icons-right
+          input.input type="password" /
+          span.icon.is-small.is-right
+            i.fa.fa-key
+      .has-text-centered
+        a.button.is-vcentered.is-primary.is-outlined Sign Up!
+      .has-text-centered
+        a href="/signin"  Already have an account? Log in now !
+  #particles-js.interactive-bg.column.is-8
